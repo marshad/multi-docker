@@ -3,22 +3,22 @@ services:
   - docker
 
 before_install:
-  - docker build -t marshad1/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t marshad/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run marshad1/react-test npm test -- --coverage
+  - docker run marshad/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t marshad1/multi-client ./client
-  - docker build -t marshad1/multi-nginx ./nginx
-  - docker build -t marshad1/multi-server ./server
-  - docker build -t marshad1/multi-worker ./worker
+  - docker build -t marshad/multi-client ./client
+  - docker build -t marshad/multi-nginx ./nginx
+  - docker build -t marshad/multi-server ./server
+  - docker build -t marshad/multi-worker ./worker
   
   # Log in to the docker CLI
   echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # Take those images and push them to docker hub
-  - docker push marshad1/multi-client
-  - docker push marshad1/multi-nginx
-  - docker push marshad1/multi-server
-  - docker push marshad1/multi-worker
+  - docker push marshad/multi-client
+  - docker push marshad/multi-nginx
+  - docker push marshad/multi-server
+  - docker push marshad/multi-worker
