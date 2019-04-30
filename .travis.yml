@@ -1,5 +1,4 @@
 sudo: required
-
 services:
   - docker
 
@@ -9,7 +8,7 @@ before_install:
 script:
   - docker run marshad1/react-test npm test -- --coverage
 
-#after_success:
+# after_success:
   - docker build -t marshad1/multi-client ./client
   - docker build -t marshad1/multi-nginx ./nginx
   - docker build -t marshad1/multi-server ./server
