@@ -1,7 +1,7 @@
 sudo: required
 services:
   - docker
-
+  
 before_install:
  - docker build -t marshad1/react-test -f ./client/Dockerfile.dev ./client
 
@@ -15,7 +15,7 @@ script:
   - docker build -t marshad1/multi-worker ./worker
 
 # Log in to the docker CLI
-  echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
 # Take those images and push them to docker hub
   - docker push marshad1/multi-client
