@@ -1,4 +1,5 @@
 sudo: required
+
 services:
   - docker
 
@@ -13,7 +14,7 @@ script:
   - docker build -t marshad1/multi-nginx ./nginx
   - docker build -t marshad1/multi-server ./server
   - docker build -t marshad1/multi-worker ./worker
-  
+
 # Log in to the docker CLI
   echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
