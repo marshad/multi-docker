@@ -9,10 +9,10 @@ script:
   - docker run marshad1/react-test npm test -- --coverage
 
 #after_success:
-#  - docker build -t marshad1/multi-client ./client
-#  - docker build -t marshad1/multi-nginx ./nginx
-#  - docker build -t marshad1/multi-server ./server
-#  - docker build -t marshad1/multi-worker ./worker
+  - docker build -t marshad1/multi-client ./client
+  - docker build -t marshad1/multi-nginx ./nginx
+  - docker build -t marshad1/multi-server ./server
+  - docker build -t marshad1/multi-worker ./worker
   
   # Log in to the docker CLI
   #echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
